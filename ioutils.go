@@ -7,7 +7,7 @@ import (
 	"io"
 )
 
-// ReadAllTrim reads data line by line from r and trims whitespace for each one.
+// ReadAllTrim reads data line by line from r and trims each one.
 // It returns a byte slice with all lines concatenated.
 func ReadAllTrim(r io.Reader) ([]byte, error) {
 	var out []byte
