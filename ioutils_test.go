@@ -25,3 +25,18 @@ func TestReadAllTrim(t *testing.T) {
 		t.Errorf("got %v but expected %v", out, expected)
 	}
 }
+
+func BenchmarkReadAllTrim(b *testing.B) {
+	r := strings.NewReader(`
+		<html>
+			<head>
+			</head>
+			<body>
+				<p>hello, world!</p>
+			</body>
+		</html>
+	`)
+	for n := 0; n < b.N; n++ {
+		ReadAllTrim(r)
+	}
+}

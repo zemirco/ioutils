@@ -1,3 +1,4 @@
+// Package ioutils extends io/ioutil.
 package ioutils
 
 import (
@@ -6,9 +7,11 @@ import (
 	"io"
 )
 
-func ReadAllTrim(in io.Reader) ([]byte, error) {
+// ReadAllTrim reads data line by line from r and trims whitespace for each one.
+// It returns a byte slice with all lines concatenated.
+func ReadAllTrim(r io.Reader) ([]byte, error) {
 	var out []byte
-	scanner := bufio.NewScanner(in)
+	scanner := bufio.NewScanner(r)
 	for scanner.Scan() {
 		out = append(out, bytes.TrimSpace(scanner.Bytes())...)
 	}
